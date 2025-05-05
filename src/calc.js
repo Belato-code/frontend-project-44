@@ -11,6 +11,12 @@ import {
 const operands = ["+", "-", "*"];
 const taskValue = "What is the result of the expression?";
 
+const ops = {
+  "+": (a, b) => a + b,
+  "-": (a, b) => a - b,
+  "*": (a, b) => a * b,
+};
+
 export default () => {
   welcome();
 
@@ -27,7 +33,7 @@ export default () => {
     const minNum = Math.min(getNum1, getNum2);
     const operation = `${maxNum} ${operand} ${minNum}`;
     const answer = getAnswer(operation);
-    const result = eval(operation);
+    const result = ops[operand](maxNum, minNum);
 
     if (result === Number(answer)) {
       console.log("Correct!");
