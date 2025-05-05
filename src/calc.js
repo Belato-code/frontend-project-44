@@ -13,13 +13,14 @@ const taskValue = "What is the result of the expression?";
 
 export default () => {
   welcome();
-  task(playerName, taskValue);
 
   const playerName = readlineSync.question("May I have your name? ");
 
+  task(playerName, taskValue);
+
   for (let i = 0; i < 3; i += 1) {
-    const getNum1 = randomNum();
-    const getNum2 = randomNum();
+    const getNum1 = randomNum(10);
+    const getNum2 = randomNum(10);
     const index = Math.round(Math.random() * 2);
     const operand = operands[index];
     const maxNum = Math.max(getNum1, getNum2);

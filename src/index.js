@@ -1,6 +1,8 @@
 import readlineSync from "readline-sync";
 
-const randomNum = () => Math.round(Math.random() * 100);
+const randomNum = (max) => {
+  return Math.round(Math.random() * max);
+};
 const welcome = () => console.log("Welcome to the Brain Games");
 const task = (playerName, task) => {
   console.log("Hello, " + playerName + " !");
