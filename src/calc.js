@@ -27,7 +27,7 @@ export default () => {
   for (let i = 0; i < 3; i += 1) {
     const getNum1 = randomNum(10);
     const getNum2 = randomNum(10);
-    const index = Math.round(Math.random() * 2);
+    const index = randomNum(2);
     const operand = operands[index];
     const maxNum = Math.max(getNum1, getNum2);
     const minNum = Math.min(getNum1, getNum2);
