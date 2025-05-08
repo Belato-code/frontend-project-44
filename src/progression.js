@@ -19,7 +19,7 @@ export default () => {
 
   for (let i = 0; i < 3; i += 1) {
     const index = randomNum(0, 9);
-    const start = randomNum(0, 100);
+    const start = randomNum(1, 100);
     const limit = 10 * index + start;
     const arr = [];
     for (let i = start; i < limit; i += index) {
