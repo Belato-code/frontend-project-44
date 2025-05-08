@@ -19,8 +19,8 @@ export default () => {
   task(playerName, taskValue);
 
   for (let i = 0; i < 3; i += 1) {
-    const getNum1 = randomNum(100);
-    const getNum2 = randomNum(100);
+    const getNum1 = randomNum(1, 100);
+    const getNum2 = randomNum(1, 100);
     const maxNum = Math.max(getNum1, getNum2);
     const minNum = Math.min(getNum1, getNum2);
     const operation = `${getNum1} ${getNum2}`;

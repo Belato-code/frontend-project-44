@@ -1,6 +1,7 @@
 import readlineSync from "readline-sync";
+import _ from "lodash";
 
-const randomNum = (max) => Math.ceil(Math.random() * max);
+const randomNum = (a, b) => _.random(a, b);
 
 const welcome = () => console.log("Welcome to the Brain Games");
 const task = (playerName, task) => {
