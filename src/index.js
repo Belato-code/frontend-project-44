@@ -17,13 +17,13 @@ const getAnswer = (random) => {
 
 const wrongAnswer = (answer, result, userName) => {
   console.log(
-    "'" +
+    '"' +
       answer +
-      "'" +
+      '"' +
       " is wrong answer ;(. Correct answer was " +
-      "'" +
+      '"' +
       result +
-      "'" +
+      '"' +
       "." +
       "Let's try again, " +
       userName +
