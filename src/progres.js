@@ -6,7 +6,7 @@ import {
   gameEnd,
   welcome,
   task,
-} from "../src/index.js";
+} from "./index.js";
 
 const taskValue = "What number is missing in the progression?";
 
