@@ -1,4 +1,4 @@
-import readlineSync from "readline-sync";
+import readlineSync from 'readline-sync'
 import {
   randomNum,
   getAnswer,
@@ -6,34 +6,35 @@ import {
   gameEnd,
   welcome,
   task,
-} from "../index.js";
+} from '../index.js'
 
 export default () => {
-  welcome();
+  welcome()
 
-  const playerName = readlineSync.question("May I have your name? ");
-  const taskValue = "What number is missing in the progression?";
+  const playerName = readlineSync.question('May I have your name? ')
+  const taskValue = 'What number is missing in the progression?'
 
-  task(playerName, taskValue);
+  task(playerName, taskValue)
 
   for (let i = 0; i < 3; i += 1) {
-    const arr = new Array();
-    const index = randomNum(1, 9);
-    const start = randomNum(1, 100);
-    const limit = 10 * index + start;
+    const arr = []
+    const index = randomNum(1, 9)
+    const start = randomNum(1, 100)
+    const limit = 10 * index + start
     for (let i = start; i < limit; i += index) {
-      arr.push(i);
+      arr.push(i)
     }
 
-    const result = arr.splice(index, 1, "..");
-    const question = arr.join(" ");
-    const answer = getAnswer(question);
+    const result = arr.splice(index, 1, '..')
+    const question = arr.join(' ')
+    const answer = getAnswer(question)
 
     if (result[0] === Number(answer)) {
-      console.log("Correct!");
-    } else {
-      return wrongAnswer(answer, result[0], playerName);
+      console.log('Correct!')
+    }
+    else {
+      return wrongAnswer(answer, result[0], playerName)
     }
   }
-  return gameEnd(playerName);
-};
+  return gameEnd(playerName)
+}
