@@ -1,13 +1,21 @@
 import readlineSync from "readline-sync";
-import { randomNum, getAnswer, wrongAnswer, gameEnd } from "../index.js";
+import {
+  randomNum,
+  getAnswer,
+  wrongAnswer,
+  gameEnd,
+  welcome,
+  task,
+} from "../index.js";
 
 export default () => {
-  console.log("Welcome to the Brain Games!");
+  welcome();
 
   const playerName = readlineSync.question("May I have your name? ");
+  const taskValue =
+    "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-  console.log("Hello, " + playerName + "!");
-  console.log("Answer 'yes' if the number is even, otherwise answer 'no'.");
+  task(playerName, taskValue);
 
   for (let i = 0; i < 3; i += 1) {
     let getNum = randomNum(1, 100);
