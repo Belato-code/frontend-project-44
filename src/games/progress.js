@@ -8,12 +8,11 @@ import {
   task,
 } from "../index.js";
 
-const taskValue = "What number is missing in the progression?";
-
 export default () => {
   welcome();
 
   const playerName = readlineSync.question("May I have your name? ");
+  const taskValue = "What number is missing in the progression?";
 
   task(playerName, taskValue);
 
