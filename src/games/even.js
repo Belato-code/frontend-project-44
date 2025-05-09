@@ -13,7 +13,7 @@ export default () => {
 
   const playerName = readlineSync.question("May I have your name? ");
   const taskValue =
-    "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    'Answer "yes" if the number is even, otherwise answer "no".';
 
   task(playerName, taskValue);
 
