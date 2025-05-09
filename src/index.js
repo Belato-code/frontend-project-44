@@ -31,9 +31,31 @@ const wrongAnswer = (answer, result, userName) => {
   );
 };
 
+const isPrime = (number) => {
+  const result = [];
+  if (number < 2) {
+    return false;
+  }
+  for (let i = 2; i <= number; i += 1) {
+    if (number % i === 0) {
+      result.push(i);
+    }
+  }
+  return result.length === 1;
+};
+
 const getGcd = (a, b) => (a % b === 0 ? b : getGcd(b, a % b));
 
 const gameEnd = (playerName) =>
   console.log("Congratulations, " + playerName + "!");
 
-export { randomNum, getAnswer, wrongAnswer, gameEnd, welcome, task, getGcd };
+export {
+  randomNum,
+  getAnswer,
+  wrongAnswer,
+  gameEnd,
+  welcome,
+  task,
+  getGcd,
+  isPrime,
+};
