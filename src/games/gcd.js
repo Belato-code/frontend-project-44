@@ -7,7 +7,7 @@ import {
   welcome,
   task,
   getGcd,
-} from "../src/index.js";
+} from "../index.js";
 
 const taskValue = "Find the greatest common divisor of given numbers.";
 

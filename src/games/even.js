@@ -1,5 +1,5 @@
 import readlineSync from "readline-sync";
-import { randomNum, getAnswer, wrongAnswer, gameEnd } from "./index.js";
+import { randomNum, getAnswer, wrongAnswer, gameEnd } from "../index.js";
 
 export default () => {
   console.log("Welcome to the Brain Games");

@@ -7,7 +7,7 @@ import {
   welcome,
   task,
   isPrime,
-} from "./index.js";
+} from "../index.js";
 
 const taskValue =
   "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
