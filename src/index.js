@@ -3,7 +3,7 @@ import _ from "lodash";
 
 const randomNum = (a, b) => _.random(a, b);
 
-const welcome = () => console.log("Welcome to the Brain Games");
+const welcome = () => console.log("Welcome to the Brain Games!");
 const task = (playerName, task) => {
   console.log("Hello, " + playerName + " !");
   console.log(task);
