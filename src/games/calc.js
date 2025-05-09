@@ -6,7 +6,7 @@ import {
   gameEnd,
   welcome,
   task,
-} from "../src/index.js";
+} from "../index.js";
 
 const operands = ["+", "-", "*"];
 const taskValue = "What is the result of the expression?";
