@@ -34,6 +34,6 @@ export default () => {
     } else {
       return wrongAnswer(answer, result[0], playerName);
     }
-    gameEnd(playerName);
   }
+  return gameEnd(playerName);
 };
