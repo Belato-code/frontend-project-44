@@ -1,40 +1,28 @@
-import readlineSync from 'readline-sync'
-import {
-  randomNum,
-  getAnswer,
-  wrongAnswer,
-  gameEnd,
-  welcome,
-  task,
-} from '../index.js'
+import _ from 'lodash'
+import makeProgression from '../index.js'
+
+const task = 'What number is missing in the progression?'
+const minIndex = 1
+const maxIndex = 9
+const startMin = 1
+const startMax = 100
+
+const getData = () => {
+  const arr = []
+  const index = _.random(minIndex, maxIndex)
+  const start = _.random(startMin, startMax)
+  const limit = 10 * index + start
+
+  for (let i = start; i < limit; i += index) {
+    arr.push(i)
+  }
+
+  const result = arr.splice(index, 1, '..')
+  const question = arr.join(' ')
+  const expectedValue = result.toString()
+  return [question, expectedValue]
+}
 
 export default () => {
-  welcome()
-
-  const playerName = readlineSync.question('May I have your name? ')
-  const taskValue = 'What number is missing in the progression?'
-
-  task(playerName, taskValue)
-
-  for (let i = 0; i < 3; i += 1) {
-    const arr = []
-    const index = randomNum(1, 9)
-    const start = randomNum(1, 100)
-    const limit = 10 * index + start
-    for (let i = start; i < limit; i += index) {
-      arr.push(i)
-    }
-
-    const result = arr.splice(index, 1, '..')
-    const question = arr.join(' ')
-    const answer = getAnswer(question)
-
-    if (result[0] === Number(answer)) {
-      console.log('Correct!')
-    }
-    else {
-      return wrongAnswer(answer, result[0], playerName)
-    }
-  }
-  return gameEnd(playerName)
+  makeProgression(task, getData)
 }
