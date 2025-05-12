@@ -7,12 +7,12 @@ const maxValue = 100
 
 const isEven = num => num % 2 === 0
 
-const playGame = () => {
+const getData = () => {
   const number = _.random(minValue, maxValue)
   const expectedValue = isEven(number) ? 'yes' : 'no'
   return [number, expectedValue]
 }
 
 export default () => {
-  startGameEven(task, playGame)
+  startGameEven(task, getData)
 }
