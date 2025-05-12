@@ -1,35 +1,28 @@
-import readlineSync from 'readline-sync'
-import {
-  randomNum,
-  getAnswer,
-  wrongAnswer,
-  gameEnd,
-  welcome,
-  task,
-  isPrime,
-} from '../index.js'
+import _ from 'lodash'
+import startPrime from '../index.js'
 
-const taskValue
-  = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+const task = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+const minValue = 1
+const maxValue = 100
 
-export default () => {
-  welcome()
-
-  const playerName = readlineSync.question('May I have your name? ')
-
-  task(playerName, taskValue)
-
-  for (let i = 0; i < 3; i += 1) {
-    const random = randomNum(1, 100)
-    const answer = getAnswer(random)
-    const result = isPrime(random) ? 'yes' : 'no'
-
-    if (result === answer) {
-      console.log('Correct!')
-    }
-    else {
-      return wrongAnswer(answer, result, playerName)
+const isPrime = (num) => {
+  if (num < 2) {
+    return false
+  }
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false
     }
   }
-  return gameEnd(playerName)
+  return true
+}
+
+const getData = () => {
+  const question = _.random(minValue, maxValue)
+  const expectedValue = isPrime(question) ? 'yes' : 'no'
+  return [question, expectedValue]
+}
+
+export default () => {
+  startPrime(task, getData)
 }
