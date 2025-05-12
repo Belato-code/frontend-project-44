@@ -1,0 +1,40 @@
+import readlineSync from 'readline-sync'
+import {
+  randomNum,
+  getAnswer,
+  wrongAnswer,
+  gameEnd,
+  welcome,
+  task,
+} from '../index.js'
+
+export default () => {
+  welcome()
+
+  const playerName = readlineSync.question('May I have your name? ')
+  const taskValue = 'What number is missing in the progression?'
+
+  task(playerName, taskValue)
+
+  for (let i = 0; i < 3; i += 1) {
+    const arr = []
+    const index = randomNum(1, 9)
+    const start = randomNum(1, 100)
+    const limit = 10 * index + start
+    for (let i = start; i < limit; i += index) {
+      arr.push(i)
+    }
+
+    const result = arr.splice(index, 1, '..')
+    const question = arr.join(' ')
+    const answer = getAnswer(question)
+
+    if (result[0] === Number(answer)) {
+      console.log('Correct!')
+    }
+    else {
+      return wrongAnswer(answer, result[0], playerName)
+    }
+  }
+  return gameEnd(playerName)
+}
