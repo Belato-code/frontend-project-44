@@ -1,38 +1,22 @@
-import readlineSync from 'readline-sync'
-import {
-  randomNum,
-  getAnswer,
-  wrongAnswer,
-  gameEnd,
-  welcome,
-  task,
-  getGcd,
-} from '../index.js'
+import _ from 'lodash'
+import getDevider from '../index.js'
 
-const taskValue = 'Find the greatest common divisor of given numbers.'
+const task = 'Find the greatest common divisor of given numbers.'
+const minValue = 1
+const maxValue = 100
+
+const getGCD = (a, b) => (a % b === 0 ? b : getGCD(b, a % b))
+
+const getData = () => {
+  const num1 = _.random(minValue, maxValue)
+  const num2 = _.random(minValue, maxValue)
+  const maxNum = Math.max(num1, num2)
+  const minNum = Math.min(num1, num2)
+  const question = `${num1} ${num2}`
+  const expectedValue = getGCD(maxNum, minNum).toString()
+  return [question, expectedValue]
+}
 
 export default () => {
-  welcome()
-
-  const playerName = readlineSync.question('May I have your name? ')
-
-  task(playerName, taskValue)
-
-  for (let i = 0; i < 3; i += 1) {
-    const getNum1 = randomNum(1, 100)
-    const getNum2 = randomNum(1, 100)
-    const maxNum = Math.max(getNum1, getNum2)
-    const minNum = Math.min(getNum1, getNum2)
-    const operation = `${getNum1} ${getNum2}`
-    const answer = getAnswer(operation)
-    const result = getGcd(maxNum, minNum)
-
-    if (result === Number(answer)) {
-      console.log('Correct!')
-    }
-    else {
-      return wrongAnswer(answer, result, playerName)
-    }
-  }
-  return gameEnd(playerName)
+  getDevider(task, getData)
 }
